@@ -41,28 +41,28 @@ Ts = 1/Fs;                                      %sample period in Seconds
 
 %read .wav
 [y,Fwav]=audioread('PostProcessed.wav');
-CrestF=20*log10(max(y)/rms(y))
+%CrestF=20*log10(max(y)/rms(y))
 
 %CF windowing
-CrestFarray=[];
+%CrestFarray=[];
 %use windows of 50ms, find number of samples = 50ms
-bb=1;
-figure;
-WindLeng=0.05*Fwav;
-for ii=20e4:length(y)-WindLeng-1e4
-    y1=y(ii:ii+WindLeng-1);    
-    CrestF=20*log10(max(y1)/rms(y1));
-    CrestFarray(bb)=CrestF;
-    bb=bb+1;
+%bb=1;
+%figure;
+%WindLeng=0.05*Fwav;
+%for ii=20e4:length(y)-WindLeng-1e4
+%    y1=y(ii:ii+WindLeng-1);    
+%    CrestF=20*log10(max(y1)/rms(y1));
+%    CrestFarray(bb)=CrestF;
+%    bb=bb+1;
 %     plot(y1);        uncomment this to view CF video     
 %     aa=sprintf('CrestFactor =%.2f dB',CrestF);
 %     title(aa);
 %     ylim([-1 1]);
 %     pause(0.0001);
-end
-plot(CrestFarray);
-aa=sprintf('CrestFactor for moving window length 50ms');
-title(aa);
+%end
+%plot(CrestFarray);
+%aa=sprintf('CrestFactor for moving window length 50ms');
+%title(aa);
 
 %find FFT
 T = 1/Fwav;                     % Sample time
